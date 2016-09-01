@@ -82,6 +82,10 @@ $break-sm-max: 899px;
     .repo-desc {
       font-size: 12px;
       color: #999;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
 
     .card-footer {
