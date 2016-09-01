@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import GH_LANG_COLORS from 'github-search/utils/gh-lang-colors';
-import config from './config/environment';
+import config from 'github-search/config/environment';
 
 const { Component, computed } = Ember;
 
