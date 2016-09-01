@@ -1,7 +1,7 @@
 # Github-search
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A sample app to search github repositories.
+[https://ghsearch-d1ea8.firebaseapp.com/](https://ghsearch-d1ea8.firebaseapp.com/)
 
 ## Prerequisites
 
