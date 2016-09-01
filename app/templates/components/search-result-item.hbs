@@ -1,19 +1,19 @@
 <h3 class="repo-name">
-  <a>{{repo.full_name}}</a>
+  <a href="{{repo.html_url}}" target="_blank" rel="noopener">{{repo.full_name}}</a>
 </h3>
 <p class="repo-desc">{{repo.description}}</p>
 
 <div class="card-footer">
-  <div class="card-footer-item">
+  <a href="{{repo.html_url}}/stargazers" target="_blank" rel="noopener" class="card-footer-item">
     {{fa-icon "star"}} {{repo.stargazers_count}}
     <div class="footer-item-desc">Stars</div>
-  </div>
-  <div class="card-footer-item">
+  </a>
+  <a href="{{repo.html_url}}/issues" target="_blank" rel="noopener" class="card-footer-item">
     {{fa-icon "exclamation-circle"}} {{repo.open_issues_count}}
     <div class="footer-item-desc">Open Issues</div>
-  </div>
-  <div class="card-footer-item">
+  </a>
+  <a href="{{repo.html_url}}/network" target="_blank" rel="noopener" class="card-footer-item">
     {{fa-icon "code-fork"}} {{repo.forks_count}}
     <div class="footer-item-desc">Forks</div>
-  </div>
+  </a>
 </div>

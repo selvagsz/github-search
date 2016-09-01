@@ -3,9 +3,20 @@
   margin: auto;
 }
 
+.logo-container {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  .fa-github {
+    font-size: 100px;
+    color: #ccc;
+  }
+}
+
 .search-container {
   max-width: 600px;
-  margin: 150px auto auto;
+  margin: auto;
 }
 
 .search-results-container {
@@ -55,11 +66,13 @@
       flex-basis: 0;
       padding: 10px;
       text-align: center;
-      font-size: 14px;
+      font-size: 13px;
+      color: #666;
       cursor: pointer;
 
       &:hover {
         background-color: #fafafa;
+        border-bottom: 0;
       }
 
       .footer-item-desc {
