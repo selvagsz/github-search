@@ -1,9 +1,15 @@
-<h3 class="repo-name">
-  <a href="{{repo.html_url}}" target="_blank" rel="noopener">{{repo.full_name}}</a>
-</h3>
-<p class="repo-desc">{{repo.description}}</p>
+<div class="repo-details">
+  <h3 class="repo-name">
+    <a href="{{repo.html_url}}" target="_blank" rel="noopener">{{repo.full_name}}</a>
+  </h3>
+  <p class="repo-desc">{{repo.description}}</p>
+</div>
 
 <div class="card-footer">
+  {{#if (and (lte index 0) weeklyStats)}}
+    {{bar-chart class="contributions-viz" data=weeklyStats}}
+  {{/if}}
+
   <a href="{{repo.html_url}}/stargazers" target="_blank" rel="noopener" class="card-footer-item">
     {{fa-icon "star"}} {{repo.stargazers_count}}
     <div class="footer-item-desc">Stars</div>
