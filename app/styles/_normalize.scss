@@ -1,0 +1,20 @@
+html, body {
+  font-family: $font-family;
+  margin: 0;
+  line-height: 1.8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    color: #23527c;
+    border-bottom: 1px solid #23527c;
+  }
+}
