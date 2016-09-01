@@ -32,6 +32,8 @@ export default Component.extend({
       }
     }).then((response) => {
       this.attrs['on-search'](response.items);
+    }).catch((error) => {
+      this.get('toast').error(error);
     }).finally(() => {
       this.set('isLoading', false);
     });

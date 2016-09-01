@@ -2,13 +2,14 @@ import Ember from 'ember';
 import GH_LANG_COLORS from 'github-search/utils/gh-lang-colors';
 import config from 'github-search/config/environment';
 
-const { Component, computed } = Ember;
+const { Component, computed, inject: { service } } = Ember;
 
 export default Component.extend({
   ajax: Ember.inject.service(),
   tagName: 'li',
   classNames: ['search-result-item'],
   attributeBindings: ['borderLeftColor:style'],
+  toast: service(),
 
   borderLeftColor: computed('repo.language', {
     get() {
@@ -57,6 +58,8 @@ export default Component.extend({
       this.get('ajax').request(`/repos/${this.get('repo.full_name')}/stats/participation`).then((response) => {
         // Display recent 6 months contributions alone
         this.set('weeklyStats', (response.all || []).reverse().slice(0, 25));
+      }).catch((error) => {
+        this.get('toast').error(error);
       })
     }
   }
