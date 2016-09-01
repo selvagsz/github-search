@@ -32,7 +32,7 @@ function BarChart() {
       let yScale = d3.scale.linear();
 
       xScale
-        .domain(data.map(function(d, i) { return i+1}))
+        .domain(data.map(function(d, i) { return i+1; }))
         .rangeRoundBands([0, _width], 0.05);
 
       yScale
@@ -60,19 +60,19 @@ function BarChart() {
   }
 
   chart.width = function(value) {
-    if(!arguments.length) return value;
+    if(!arguments.length) { return value; }
     width = value;
     return chart;
-  }
+  };
 
   chart.height = function(value) {
-    if(!arguments.length) return value;
+    if(!arguments.length) { return value; }
     height = value;
     return chart;
-  }
+  };
 
   chart.margin = function(value) {
-    if(!arguments.length) return value;
+    if(!arguments.length) { return value; }
     if (typeof value === 'number') {
       value = {
         top: value,
@@ -84,13 +84,13 @@ function BarChart() {
 
     margin = value;
     return chart;
-  }
+  };
 
   chart.color = function(value) {
-    if(!arguments.length) return value;
+    if(!arguments.length) { return value; }
     color = value;
     return chart;
-  }
+  };
 
   return chart;
 }

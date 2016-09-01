@@ -7,11 +7,11 @@ export default Ember.Component.extend({
     d3.select(`#${this.elementId}`)
       .datum(this.get('data'))
       .call(
-        BarChart()
+        new BarChart()
           .width(this.$().parent().width())
           .height(105)
           .margin(0)
           .color('#f6f6f6')
       );
   }
-})
+});

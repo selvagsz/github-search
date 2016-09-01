@@ -6,7 +6,7 @@
 </div>
 
 <div class="card-footer">
-  {{#if (and (lte index 0) weeklyStats)}}
+  {{#if (and (lte index 2) weeklyStats)}}
     {{bar-chart class="contributions-viz" data=weeklyStats}}
   {{/if}}
 
