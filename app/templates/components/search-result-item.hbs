@@ -2,6 +2,10 @@
   <h3 class="repo-name">
     <a href="{{repo.html_url}}" target="_blank" rel="noopener" title={{repo.full_name}}>{{repo.full_name}}</a>
   </h3>
+  <div class="repo-lang">
+    <span class="dot" style="background-color:{{languageColor}}"></span>
+    {{repo.language}}
+  </div>
   <p class="repo-desc">{{repo.description}}</p>
 </div>
 

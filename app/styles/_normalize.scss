@@ -3,6 +3,8 @@ html, body {
   margin: 0;
   line-height: $line-height;
   background-color: #f3f3f3;
+  min-height: 100%;
+  padding-bottom: 50px;
 }
 
 *, *::before, *::after {

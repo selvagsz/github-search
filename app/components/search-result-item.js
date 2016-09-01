@@ -11,9 +11,15 @@ export default Component.extend({
   attributeBindings: ['borderLeftColor:style'],
   toast: service(),
 
-  borderLeftColor: computed('repo.language', {
+  borderLeftColor: computed('languageColor', {
     get() {
-      return `border-left-color: ${GH_LANG_COLORS[this.get('repo.language')]}`;
+      return Ember.String.htmlSafe(`border-left-color: ${this.get('languageColor')}`);
+    }
+  }),
+
+  languageColor: computed('repo.language', {
+    get() {
+      return GH_LANG_COLORS[this.get('repo.language')];
     }
   }),
 
