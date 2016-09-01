@@ -1,40 +1,9 @@
 <div class="container">
   <div class="search-container">
-    <div class="action-input">
-      {{input class="input input-lg" placeholder="Search repos"}}
-      <button class="button button-lg">Search</button>
-    </div>
+    {{git-search-form on-search=(action "showResults")}}
   </div>
 
   <div class="search-results-container">
-    <ul class="search-results">
-      <li class="search-result-item">
-        <h3 class="repo-name">
-          <a>selvagsz/ember-carousel</a>
-        </h3>
-        <p class="repo-desc">Some description</p>
-      </li>
-
-      <li class="search-result-item">
-        <h3 class="repo-name">
-          <a>selvagsz/ember-carousel</a>
-        </h3>
-        <p class="repo-desc">Some description</p>
-      </li>
-
-      <li class="search-result-item">
-        <h3 class="repo-name">
-          <a>selvagsz/ember-carousel</a>
-        </h3>
-        <p class="repo-desc">Some description</p>
-      </li>
-
-      <li class="search-result-item">
-        <h3 class="repo-name">
-          <a>selvagsz/ember-carousel</a>
-        </h3>
-        <p class="repo-desc">Some description</p>
-      </li>
-    </ul>
+    {{search-results repos=model}}
   </div>
 </div>

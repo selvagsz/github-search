@@ -1,0 +1,4 @@
+  {{input class="input input-lg" value=searchText placeholder="Search repos" autofocus=true}}
+  <button class="button button-lg button-primary" disabled={{isLoading}}>
+    {{#if isLoading}} {{fa-icon "spinner" spin=true}} {{/if}} Search
+  </button>

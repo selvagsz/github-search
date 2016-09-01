@@ -14,7 +14,6 @@
   }
 }
 
-
 .button {
   display: inline-block;
   padding: 6px 12px;
@@ -24,6 +23,21 @@
   font-family: inherit;
   font-size: 14px;
   line-height: 1.4;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &[disabled] {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+}
+
+.button-primary {
+  background-color: #7573dc;
+  border-color: #7573dc;
+  color: #fff;
 }
 
 .input-lg, .button-lg {
