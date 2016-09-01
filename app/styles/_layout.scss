@@ -6,3 +6,29 @@
 .search-container {
   margin-top: 150px;
 }
+
+.search-results-container {
+  margin-top: 50px;
+
+  .search-results {
+    list-style: none;
+    padding: 0;
+
+    .search-result-item {
+      padding: 15px 0;
+    }
+
+    .search-result-item + .search-result-item {
+      border-top: 1px solid #ededed;
+    }
+
+    .repo-name {
+      margin: 0;
+    }
+
+    .repo-desc {
+      font-size: 14px;
+      color: #999;
+    }
+  }
+}
