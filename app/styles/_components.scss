@@ -46,15 +46,21 @@
 }
 
 .action-input {
-  position: relative;
+  display: flex;
 
   > .input {
-    padding-right: 80px;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-color 0.3s ease-out;
+
+    &:focus {
+      border-color: #7573dc;
+    }
   }
 
   > .button {
-    position: absolute;
-    right: 0;
-    top: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
