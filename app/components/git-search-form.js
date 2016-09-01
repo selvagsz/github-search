@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
-const { Component, isPresent, inject: { service } } = Ember;
+const { Component, isPresent, isBlank, inject: { service } } = Ember;
 
 export default Component.extend({
   tagName: 'form',
   classNames: ['action-input'],
   ajax: service(),
+  toast: service(),
 
   init() {
     this._super(...arguments);
@@ -15,6 +16,13 @@ export default Component.extend({
   },
 
   searchRepos() {
+    let searchText = this.get('searchText');
+
+    if (isBlank(searchText)) {
+      this.get('toast').error('Please provide a search text');
+      return;
+    }
+
     this.set('isLoading', 'true');
     this.get('ajax').request('/search/repositories', {
       data: {

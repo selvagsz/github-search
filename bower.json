@@ -4,6 +4,7 @@
     "ember": "~2.8.0-beta.1",
     "ember-cli-shims": "0.1.1",
     "font-awesome": "~4.5.0",
-    "d3": "3.5.17"
+    "d3": "3.5.17",
+    "toastr": "^2.1.3"
   }
 }
