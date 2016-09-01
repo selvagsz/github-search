@@ -1,10 +1,11 @@
 .container {
-  max-width: 700px;
+  max-width: 960px;
   margin: auto;
 }
 
 .search-container {
-  margin-top: 150px;
+  max-width: 600px;
+  margin: 150px auto auto;
 }
 
 .search-results-container {
@@ -13,21 +14,27 @@
   .search-results {
     list-style: none;
     padding: 0;
+    margin-left: -10px;
+    @include clearfix;
 
     .search-result-item {
-      padding: 15px 0;
-    }
-
-    .search-result-item + .search-result-item {
-      border-top: 1px solid #ededed;
+      padding: 10px;
+      width: 300px;
+      height: 200px;
+      float: left;
+      margin: 10px;
+      background-color: #fff;
+      border: 1px solid #ededed;
+      box-shadow: 0 0 1px -1px rgba(0,0,0,0.5);
     }
 
     .repo-name {
-      margin: 0;
+      margin-top: 0;
+      margin-bottom: 10px;
     }
 
     .repo-desc {
-      font-size: 14px;
+      font-size: 12px;
       color: #999;
     }
   }
