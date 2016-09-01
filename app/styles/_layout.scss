@@ -18,6 +18,7 @@
     @include clearfix;
 
     .search-result-item {
+      position: relative;
       padding: 10px;
       width: 300px;
       height: 200px;
@@ -26,6 +27,7 @@
       background-color: #fff;
       border: 1px solid #ededed;
       box-shadow: 0 0 1px -1px rgba(0,0,0,0.5);
+      border-left-width: 3px;
     }
 
     .repo-name {
@@ -36,6 +38,34 @@
     .repo-desc {
       font-size: 12px;
       color: #999;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid #ededed;
+    }
+
+    .card-footer-item {
+      flex-grow: 1;
+      flex-basis: 0;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #fafafa;
+      }
+
+      .footer-item-desc {
+        font-size: 11px;
+        color: #999;
+      }
     }
   }
 }
