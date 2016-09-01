@@ -1,0 +1,46 @@
+.input {
+  display: block;
+  width: 100%;
+  line-height: 1.4;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 14px;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.input-lg, .button-lg {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.action-input {
+  position: relative;
+
+  > .input {
+    padding-right: 80px;
+  }
+
+  > .button {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
