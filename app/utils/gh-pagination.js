@@ -20,13 +20,15 @@ export function parseLinkHeaders(header) {
 }
 
 export function getQueryParms(urlString) {
-  let url = new URL(urlString);
-  let searchParams = new URLSearchParams(url.search.slice(1));
-  let params = {};
-  for (let p of searchParams) {
-    params[p[0]] = p[1];
+  let result = {};
+  let params = (urlString.split('?')[1] || '').split('&');
+  for(let param in params) {
+    if (params.hasOwnProperty(param)) {
+      let paramParts = params[param].split('=');
+      result[paramParts[0]] = decodeURIComponent(paramParts[1] || "");
+    }
   }
-  return params;
+  return result;
 }
 
 export function getPaginationParams(linkHeader) {
