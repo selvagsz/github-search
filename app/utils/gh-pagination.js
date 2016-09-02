@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export function parseLinkHeaders(header) {
   if (Ember.isBlank(header)) {
     return;
