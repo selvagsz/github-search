@@ -63,7 +63,7 @@ export default Component.extend({
     } else if (this.get('index') <= 2) { // Show contributions graphs for the first 3 repos alone (To prevent exceeding the API rate limit)
       this.get('ajax').request(`/repos/${this.get('repo.full_name')}/stats/participation`).then((response) => {
         // Display recent 6 months contributions alone
-        this.set('weeklyStats', (response.all || []).reverse().slice(0, 25).reverse());
+        this.set('weeklyStats', (response.all || []).slice(-26));
       }).catch((error) => {
         this.get('toast').error(error);
       });
