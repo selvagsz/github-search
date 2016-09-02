@@ -1,5 +1,5 @@
 export function parseLinkHeaders(header) {
-  if (header && header.length === 0) {
+  if (Ember.isBlank(header)) {
     return;
   }
 
