@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   queryParams: [
-    'searchText'
+    'searchText',
+    'page'
   ],
   searchText: '',
+  page: 1,
 
   actions: {
     showResults(repos) {

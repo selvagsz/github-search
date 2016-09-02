@@ -7,7 +7,10 @@ export default Ember.Route.extend({
 
   resetController: function(controller, isExiting, transition) {
     if (isExiting) {
-      controller.set('searchText', '');
+      controller.setProperties({
+        searchText: '',
+        page: 1
+      });
     }
   }
 });

@@ -3,7 +3,9 @@
     "document",
     "window",
     "-Promise",
-    "d3"
+    "d3",
+    "URL",
+    "URLSearchParams"
   ],
   "browser": true,
   "boss": true,

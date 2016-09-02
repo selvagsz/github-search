@@ -1,0 +1,23 @@
+<div class="search-container">
+  {{git-search-form
+    searchText=searchText
+    page=page
+    isLoading=isLoading
+    on-search=(action searchRepos)}}
+</div>
+
+<div class="search-results-container">
+  {{#if isLoading}}
+    <div class="text-center">
+      {{fa-icon "spinner" spin=true}}
+    </div>
+  {{else}}
+    {{search-results repos=repos}}
+  {{/if}}
+</div>
+
+{{#unless isLoading}}
+  {{#if repos}}
+    {{gh-pager currentPage=page totalPages=totalPages goto=(action 'gotoPage')}}
+  {{/if}}
+{{/unless}}

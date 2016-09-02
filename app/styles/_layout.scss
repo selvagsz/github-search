@@ -35,6 +35,11 @@ $break-sm-max: 899px;
 .search-results-container {
   margin-top: 50px;
 
+  .fa-spinner {
+    font-size: 30px;
+    color: #999;
+  }
+
   .search-results {
     list-style: none;
     padding: 0;

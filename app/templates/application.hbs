@@ -3,11 +3,5 @@
     {{fa-icon "github"}}
   </div>
 
-  <div class="search-container">
-    {{git-search-form searchText=searchText on-search=(action "showResults")}}
-  </div>
-
-  <div class="search-results-container">
-    {{search-results repos=model}}
-  </div>
+  {{github-search repos=model page=page searchText=searchText on-search=(action "showResults")}}
 </div>

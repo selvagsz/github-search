@@ -23,9 +23,14 @@
   font-family: inherit;
   font-size: 14px;
   line-height: 1.4;
+  cursor: pointer;
 
   &:focus {
     outline: 0;
+  }
+
+  &:hover {
+    background-color: #f3f3f3;
   }
 
   &[disabled] {
@@ -38,6 +43,10 @@
   background-color: #7573dc;
   border-color: #7573dc;
   color: #fff;
+
+  &:hover {
+    background-color: darken(#7573dc, 5%);
+  }
 }
 
 .input-lg, .button-lg {
@@ -63,5 +72,16 @@
     flex-basis: 35%;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+
+  > .button {
+    padding: 10px 40px;
+    border-radius: 20px;
   }
 }
