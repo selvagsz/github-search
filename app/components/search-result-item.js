@@ -7,19 +7,12 @@ const { Component, computed, inject: { service } } = Ember;
 export default Component.extend({
   ajax: Ember.inject.service(),
   tagName: 'li',
-  classNames: ['search-result-item'],
-  attributeBindings: ['borderLeftColor:style'],
+  classNameBindings: [':search-result-item', 'isFlipped'],
   toast: service(),
-
-  borderLeftColor: computed('languageColor', {
-    get() {
-      return Ember.String.htmlSafe(`border-left-color: ${this.get('languageColor')}`);
-    }
-  }),
 
   languageColor: computed('repo.language', {
     get() {
-      return GH_LANG_COLORS[this.get('repo.language')];
+      return Ember.String.htmlSafe(GH_LANG_COLORS[this.get('repo.language')]);
     }
   }),
 
@@ -67,6 +60,12 @@ export default Component.extend({
       }).catch((error) => {
         this.get('toast').error(error);
       });
+    }
+  },
+
+  actions: {
+    flip() {
+      this.toggleProperty('isFlipped');
     }
   }
 });

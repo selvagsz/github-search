@@ -40,6 +40,16 @@ $break-sm-max: 899px;
     color: #999;
   }
 
+  .flip-info-icon {
+    padding: 6px 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #999;
+    cursor: pointer;
+    z-index: 2;
+  }
+
   .search-results {
     list-style: none;
     padding: 0;
@@ -54,15 +64,11 @@ $break-sm-max: 899px;
 
     .search-result-item {
       position: relative;
-      padding: 10px;
       width: 31%;
       height: 200px;
       float: left;
-      margin: 1%;
-      background-color: #fff;
-      border-left: 4px solid;
-      box-shadow: 0px 1px 7px -3px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
+      margin: 1.15%;
+      perspective: 1000px;
 
       @media (max-width: $break-sm-max) {
         width: 48%;
@@ -73,6 +79,39 @@ $break-sm-max: 899px;
         margin-left: 0;
         margin-right: 0;
       }
+
+      .front, .back {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0px 1px 7px -3px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        transition: transform 200ms ease-in;
+        backface-visibility: hidden;
+        padding: 7px 10px;
+      }
+
+      .front {
+        border-left: 4px solid;
+      }
+
+      .back {
+        transform: rotateY(-180deg);
+      }
+
+      &.is-flipped {
+        .front {
+          z-index: initial;
+          transform: rotateY(180deg);
+        }
+
+        .back {
+          transform: rotateY(0deg);
+        }
+      }
     }
 
     .repo-details {
@@ -80,11 +119,12 @@ $break-sm-max: 899px;
       z-index: 1;
     }
 
-    .repo-name {
+    .repo-card-header {
       margin-top: 0;
       margin-bottom: 5px;
       line-height: 1.6;
       @include ellipsis(270px);
+      font-weight: 400;
     }
 
     .repo-lang {
@@ -145,5 +185,37 @@ $break-sm-max: 899px;
       position: absolute;
       bottom: 91.5%;
     }
+  }
+}
+
+.repo-more-info {
+  @include clearfix;
+
+  dl {
+    margin: 0;
+  }
+
+  dt, dd {
+    font-size: 14px;
+    display: inline-block;
+    float: left;
+    margin-bottom: 10px;
+  }
+
+  dt {
+    color: #777;
+    width: 40%;
+  }
+
+  dd {
+    margin-left: 0;
+    width: 60%;
+  }
+
+  .avatar {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    vertical-align: middle;
   }
 }

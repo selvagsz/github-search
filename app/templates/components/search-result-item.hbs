@@ -1,29 +1,61 @@
-<div class="repo-details">
-  <h3 class="repo-name">
-    <a href="{{repo.html_url}}" target="_blank" rel="noopener" title={{repo.full_name}}>{{repo.full_name}}</a>
-  </h3>
-  <div class="repo-lang">
-    <span class="dot" style="background-color:{{languageColor}}"></span>
-    {{repo.language}}
+<div class="front" style="border-left-color:{{languageColor}}">
+  <div class="flip-info-icon" {{action "flip"}}>
+    {{fa-icon "info-circle"}}
   </div>
-  <p class="repo-desc">{{repo.description}}</p>
+  <div class="repo-details">
+    <h3 class="repo-card-header">
+      <a href="{{repo.html_url}}" target="_blank" rel="noopener" title={{repo.full_name}}>{{repo.full_name}}</a>
+    </h3>
+    <div class="repo-lang">
+      <span class="dot" style="background-color:{{languageColor}}"></span>
+      {{repo.language}}
+    </div>
+    <p class="repo-desc">{{repo.description}}</p>
+  </div>
+
+  <div class="card-footer">
+    {{#if (and (lte index 2) weeklyStats)}}
+      {{bar-chart class="contributions-viz" data=weeklyStats}}
+    {{/if}}
+
+    <a href="{{repo.html_url}}/stargazers" target="_blank" rel="noopener" class="card-footer-item">
+      {{fa-icon "star"}} {{repo.stargazers_count}}
+      <div class="footer-item-desc">Stars</div>
+    </a>
+    <a href="{{repo.html_url}}/issues" target="_blank" rel="noopener" class="card-footer-item">
+      {{fa-icon "exclamation-circle"}} {{repo.open_issues_count}}
+      <div class="footer-item-desc">Open Issues</div>
+    </a>
+    <a href="{{repo.html_url}}/network" target="_blank" rel="noopener" class="card-footer-item">
+      {{fa-icon "code-fork"}} {{repo.forks_count}}
+      <div class="footer-item-desc">Forks</div>
+    </a>
+  </div>
 </div>
 
-<div class="card-footer">
-  {{#if (and (lte index 2) weeklyStats)}}
-    {{bar-chart class="contributions-viz" data=weeklyStats}}
-  {{/if}}
+<div class="back">
+  <div class="flip-info-icon" {{action "flip"}}>
+    {{fa-icon "times-circle"}}
+  </div>
 
-  <a href="{{repo.html_url}}/stargazers" target="_blank" rel="noopener" class="card-footer-item">
-    {{fa-icon "star"}} {{repo.stargazers_count}}
-    <div class="footer-item-desc">Stars</div>
-  </a>
-  <a href="{{repo.html_url}}/issues" target="_blank" rel="noopener" class="card-footer-item">
-    {{fa-icon "exclamation-circle"}} {{repo.open_issues_count}}
-    <div class="footer-item-desc">Open Issues</div>
-  </a>
-  <a href="{{repo.html_url}}/network" target="_blank" rel="noopener" class="card-footer-item">
-    {{fa-icon "code-fork"}} {{repo.forks_count}}
-    <div class="footer-item-desc">Forks</div>
-  </a>
+  <h3 class="repo-card-header">More Details</h3>
+
+  <div class="repo-more-info">
+    <dl>
+      <dt>Repo owner</dt>
+      <dd>
+        <img class="avatar" src="{{repo.owner.avatar_url}}" />
+        {{repo.owner.login}}
+      </dd>
+
+      <dt>Size</dt>
+      <dd>{{repo.size}}</dd>
+
+      <dt>Created at</dt>
+      <dd>{{moment-format repo.created_at "MMM DD, YYYY"}}</dd>
+
+      <dt>Updated at</dt>
+      <dd>{{moment-from-now repo.updated_at}}</dd>
+    </dl>
+  </div>
 </div>
