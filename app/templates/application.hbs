@@ -3,5 +3,11 @@
     {{fa-icon "github"}}
   </div>
 
-  {{github-search repos=model page=page searchText=searchText on-search=(action "showResults")}}
+  {{github-search
+    repos=model
+    page=page
+    searchText=searchText
+    onSearchDidChange=(action "setSearchText")
+    onPageDidChange=(action "setPage")
+    onSearch=(action "showResults")}}
 </div>

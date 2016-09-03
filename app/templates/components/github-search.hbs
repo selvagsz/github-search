@@ -3,7 +3,7 @@
     searchText=searchText
     page=page
     isLoading=isLoading
-    on-search=(action searchRepos)}}
+    onSearch=(action onSearchDidChange)}}
 </div>
 
 <div class="search-results-container">
@@ -18,6 +18,6 @@
 
 {{#unless isLoading}}
   {{#if repos}}
-    {{gh-pager currentPage=page totalPages=totalPages goto=(action 'gotoPage')}}
+    {{gh-pager currentPage=page totalPages=totalPages goto=(action onPageDidChange)}}
   {{/if}}
 {{/unless}}

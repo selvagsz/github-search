@@ -13,6 +13,13 @@ export default Component.extend({
     }
   },
 
+  didUpdateAttrs() {
+    this._super(...arguments);
+    if (isPresent(this.get('searchText'))) {
+      this.searchRepos();
+    }
+  },
+
   searchRepos(searchText) {
     searchText = searchText || this.get('searchText');
 
@@ -30,19 +37,12 @@ export default Component.extend({
         page: this.get('page')
       }
     }).then((response) => {
-      this.attrs['on-search'](response.items);
+      this.attrs['onSearch'](response.items);
       this.set('totalPages', (response.last && response.last.page) || null);
     }).catch((error) => {
       this.get('toast').error(error);
     }).finally(() => {
       this.set('isLoading', false);
     });
-  },
-
-  actions: {
-    gotoPage(page) {
-      this.set('page', page);
-      this.searchRepos();
-    }
   }
 });

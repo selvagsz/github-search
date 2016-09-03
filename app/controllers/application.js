@@ -10,7 +10,15 @@ export default Ember.Controller.extend({
 
   actions: {
     showResults(repos) {
-      this.set('model', repos);
+      this.get('model').clear().pushObjects(repos);
+    },
+
+    setSearchText(searchText) {
+      this.set('searchText', searchText);
+    },
+
+    setPage(page) {
+      this.set('page', page);
     }
   }
 });
