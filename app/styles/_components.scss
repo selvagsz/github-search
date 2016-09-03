@@ -15,10 +15,11 @@
 }
 
 .button {
+  $background-color: #fff;
   display: inline-block;
   padding: 6px 12px;
   border: 1px solid #ccc;
-  background-color: #fff;
+  background-color: $background-color;
   border-radius: 2px;
   font-family: inherit;
   font-size: 14px;
@@ -29,8 +30,8 @@
     outline: 0;
   }
 
-  &:not([disabled]:hover) {
-    background-color: #f3f3f3;
+  &:not([disabled]):hover {
+    background-color: darken($background-color, 5%);
   }
 
   &[disabled] {
@@ -44,7 +45,7 @@
   border-color: #7573dc;
   color: #fff;
 
-  &:hover {
+  &:not([disabled]):hover {
     background-color: darken(#7573dc, 5%);
   }
 }
