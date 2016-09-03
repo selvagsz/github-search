@@ -23,11 +23,6 @@ export default Component.extend({
   searchRepos(searchText) {
     searchText = searchText || this.get('searchText');
 
-    if (isBlank(searchText)) {
-      this.get('toast').error('Please provide a search text');
-      return;
-    }
-
     this.set('isLoading', true);
     return this.get('ajax').request('/search/repositories', {
       data: {
@@ -40,7 +35,7 @@ export default Component.extend({
       this.attrs['onSearch'](response.items);
       this.set('totalPages', (response.last && response.last.page) || null);
     }).catch((error) => {
-      this.get('toast').error(error);
+      this.get('toast').error((error.errors && error.errors[0].detail.message) || error.message);
     }).finally(() => {
       this.set('isLoading', false);
     });

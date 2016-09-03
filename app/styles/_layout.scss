@@ -13,8 +13,8 @@ $break-sm-max: 899px;
 
 .logo-container {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 
   @media (max-width: $break-sm-max) {
     margin-top: 30px;
@@ -22,7 +22,7 @@ $break-sm-max: 899px;
   }
 
   .fa-github {
-    font-size: 85px;
+    font-size: 75px;
     color: #ccc;
   }
 }
@@ -33,7 +33,7 @@ $break-sm-max: 899px;
 }
 
 .search-results-container {
-  margin-top: 50px;
+  margin-top: 40px;
 
   .fa-spinner {
     font-size: 30px;

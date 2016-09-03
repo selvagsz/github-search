@@ -58,7 +58,7 @@ export default Component.extend({
         // Display recent 6 months contributions alone
         this.set('weeklyStats', (response.all || []).slice(-26));
       }).catch((error) => {
-        this.get('toast').error(error);
+        this.get('toast').error((error.errors && error.errors[0].detail.message) || error.message);
       });
     }
   },
