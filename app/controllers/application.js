@@ -14,7 +14,10 @@ export default Ember.Controller.extend({
     },
 
     setSearchText(searchText) {
-      this.set('searchText', searchText);
+      this.setProperties({
+        searchText,
+        page: 1
+      });
     },
 
     setPage(page) {
