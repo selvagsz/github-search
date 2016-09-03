@@ -31,7 +31,9 @@ export default Component.extend({
       }
     }).then((response) => {
       this.attrs['on-search'](response.items);
-      this.set('totalPages', response.last.page);
+      if (response.last) {
+        this.set('totalPages', response.last.page);
+      }
     }).catch((error) => {
       this.get('toast').error(error);
     }).finally(() => {

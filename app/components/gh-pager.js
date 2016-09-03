@@ -1,13 +1,14 @@
 import Ember from 'ember';
 
-const { Component, computed } = Ember;
+const { Component, isBlank, computed } = Ember;
 
 export default Component.extend({
   classNames: ['pagination'],
   isFirstPage: computed.equal('currentPage', 1),
   isLastPage: computed('currentPage', 'totalPages', {
     get() {
-      return Number(this.get('currentPage')) === Number(this.get('totalPages'));
+      let totalPages = this.get('totalPages');
+      return isBlank(totalPages) || Number(this.get('currentPage')) === Number(totalPages);
     }
   }),
 
