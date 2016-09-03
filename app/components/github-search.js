@@ -21,7 +21,7 @@ export default Component.extend({
       return;
     }
 
-    this.set('isLoading', 'true');
+    this.set('isLoading', true);
     return this.get('ajax').request('/search/repositories', {
       data: {
         q: this.get('searchText'),
@@ -31,9 +31,7 @@ export default Component.extend({
       }
     }).then((response) => {
       this.attrs['on-search'](response.items);
-      if (response.last) {
-        this.set('totalPages', response.last.page);
-      }
+      this.set('totalPages', (response.last && response.last.page) || null);
     }).catch((error) => {
       this.get('toast').error(error);
     }).finally(() => {
